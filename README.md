@@ -1,19 +1,20 @@
 Con este podras practicar las preguntas que vienen de memoria en el examen de certificacion de la CNBV. 
 Podras practicar los siguientes temas:
-1. 40 Recomendaciones
-2. Leyes
-3. Clientes y Usuarios
-4. Regimen Simplificado
-5. Plazos Regularios
-6. Umbrales de identificacion
-7. Lineamientos de la auditoria
-8. Infracciones
-9. Auditoria
-10. Sistema automatizado, OC y CCC
-11. Guia EBR para el sector bancario
-12. Adecuada gestion del riesgo
-13. Obligaciones
+1. Lavado de dinero y Financiamiento al terrorismo
+2. 40 Recomendaciones
+3. Leyes
+4. Clientes y Usuarios
+5. Regimen Simplificado
+6. Plazos Regularios
+7. Umbrales de identificacion
+8. Lineamientos de la auditoria
+9. Infracciones
+10. Auditoria
+11. Sistema automatizado, OC y CCC
+12. Guia EBR para el sector bancario
+13. Adecuada gestion del riesgo
+14. Obligaciones
 
 El programa aun se encuentra en desarrollo, pero puedes empezar la practica con esos temas. 
 # Oficial_de_cumplimiento
-Programa de practica para el examen de Oficial de cumplimiento 2022
+Programa de practica para el examen de Oficial de cumplimiento 2023
