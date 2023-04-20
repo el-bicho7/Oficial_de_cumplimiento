@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 '''Auditoria'''
+
 import funcion_preguntas
 import os
 
@@ -11,9 +13,9 @@ orden = {"Orden de visita de la Auditoria" : ["Lugar y fecha", "Numero de Oficio
 
 visitas = {"Procedimiento de la visita" : ["El inspector se identifica", "El SOB debe permitir la visita", "Dar acceso al lugar", "Proporcionar un espacio fisico",
           "En un solo dia se consta su inicio y conclusion en la misma acta", "Cada acta firmada por el representante legal"]}
-    
+
 def proced_visita():
-    
+
     tema = "Procedimiento de la Auditoria"
     pregunta = "Cual es el "
     calificacion = funcion_preguntas.preguntas_list(proced, tema, pregunta)
@@ -21,7 +23,7 @@ def proced_visita():
 
 
 def orden_visita():
-    
+
     tema = "Orden de Visita de la Auditoria"
     pregunta = "Cual es el "
     calificacion = funcion_preguntas.preguntas_list(orden, tema, pregunta)
@@ -34,12 +36,12 @@ def visita():
     calificacion = funcion_preguntas.preguntas_list(visitas, tema, pregunta)
     return calificacion
 
-def auditoria():    
+def auditoria():
     calificacion = { 1 : 0,
                      2 : 0,
                      3 : 0}
     while True:
-        
+
         print("".ljust(80,'-'))
         print("Que quieres practicar?\n\ta. Procedimiento de la Auditoria\t", calificacion[1], "%\n\tb. Orden de visita\t\t\t", calificacion[2],"%\n\tc. Procedimiento de visita de Auditoria\t", calificacion[3], "%\n\td. Salir\n")
         resp = input()
@@ -62,5 +64,3 @@ def auditoria():
     promedio  = round(c/len(calificacion), 2)
 
     return promedio
-        
-        
