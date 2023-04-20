@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''CCC y OC'''
 import funcion_preguntas
 import os

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''Infracciones'''
 import funcion_preguntas
 

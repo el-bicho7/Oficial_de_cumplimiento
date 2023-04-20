@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''Niveles de registro'''
 import funcion_preguntas
 

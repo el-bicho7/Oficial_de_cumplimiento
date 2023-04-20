@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''EBR'''
 import funcion_preguntas
 import os

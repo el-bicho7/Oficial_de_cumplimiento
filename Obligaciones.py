@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''Obligaciones'''
 import funcion_preguntas
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import funcion_preguntas
 
 '''Clientes y Usuarios'''

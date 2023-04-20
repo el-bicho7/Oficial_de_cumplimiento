@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 '''Adecuada gestion del riesgo'''
 import funcion_preguntas
 import os

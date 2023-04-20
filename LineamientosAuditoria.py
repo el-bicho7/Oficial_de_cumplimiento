@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''Lineamientos auditoria'''
 import funcion_preguntas
 

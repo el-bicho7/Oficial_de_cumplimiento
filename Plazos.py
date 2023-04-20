@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import funcion_preguntas
 
 '''Plazos regulatorios'''
