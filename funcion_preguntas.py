@@ -63,6 +63,7 @@ def preguntas_list(diccionario, tema, pregunta):
     lst = list(map(lambda z: z.casefold(),lst))             #Hace minusculas todos los objetos de la lista de aciertos
     pregunta = pregunta + dic + ": (singular)"
     wrapp = textwrap.fill(pregunta)
+    print(wrapp)
     while (attempts >0 and len(lst)>0):
 
         print(tema.center(70, "-"))
@@ -106,3 +107,31 @@ def preguntas_list(diccionario, tema, pregunta):
         os.system('cls')
         cont = False
     return calificacion
+
+
+def preguntas_sstr(diccionario, tema, pregunta):
+    '''Diccionario para preguntas item???dicc (str:str)'''
+    calificacion = 0
+    errors = 3
+    score = 0
+    intentos = 0
+    faltantes = ""
+    while errors > 0:
+        for key, value in diccionario.items():
+            print(value, pregunta)
+            resp = input()
+            if resp == key:
+                score += 1
+                intentos += 1
+                print("Correcto")
+            else:
+                errors -= 1
+                intentos -= 1
+                print("Incorrecto")
+                faltante = value + key
+
+        calificacion = round((score/intentos*100),2)
+        for falta in faltante:
+            print(falta)
+
+    return calificacion 

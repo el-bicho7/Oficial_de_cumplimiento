@@ -42,7 +42,7 @@ def auditoria():
                      3 : 0}
     while True:
 
-        print("".ljust(80,'-'))
+        print("".ljust(70,'='))
         print("Que quieres practicar?\n\ta. Procedimiento de la Auditoria\t", calificacion[1], "%\n\tb. Orden de visita\t\t\t", calificacion[2],"%\n\tc. Procedimiento de visita de Auditoria\t", calificacion[3], "%\n\td. Salir\n")
         resp = input()
         os.system('cls')
