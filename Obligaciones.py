@@ -9,6 +9,5 @@ def obligaciones():
 
     pregunta = "Cuales son las "
     tema = "Obligaciones"
-
-    funcion_preguntas.preguntas_list(obligacion, tema, pregunta)
-
+    calificacion = funcion_preguntas.preguntas_list(obligacion, tema, pregunta)
+    return calificacion
