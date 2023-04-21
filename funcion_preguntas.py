@@ -111,13 +111,13 @@ def preguntas_list(diccionario, tema, pregunta):
 
 def preguntas_sstr(diccionario, tema, pregunta):
     '''Diccionario para preguntas item???dicc (str:str)'''
-    calificacion = 0
-    errors = 3
-    score = 0
-    intentos = 0
-    faltantes = ""
-    while errors > 0:
-        for key, value in diccionario.items():
+    while intentos < len(diccionario):
+        calificacion = 0
+        errors = 3
+        score = 0
+        intentos = 0
+        faltantes = []
+        for key, value in random.choice(diccionario.items()):
             print(value, pregunta)
             resp = input()
             if resp == key:
@@ -126,12 +126,22 @@ def preguntas_sstr(diccionario, tema, pregunta):
                 print("Correcto")
             else:
                 errors -= 1
-                intentos -= 1
+                intentos += 1
                 print("Incorrecto")
-                faltante = value + key
+                faltantes.append(key)
 
         calificacion = round((score/intentos*100),2)
-        for falta in faltante:
-            print(falta)
+        if len(faltantes) > 0:
+            for i in faltantes:
+                print(i, end="\n")
 
-    return calificacion 
+        print("Calificacion:\n\t", calificacion, "%")
+        cont = input("Intentar otra vez (s/n)\n\t")
+        if cont == 's':
+            os.system('cls')
+            cont = True
+        else:
+            os.system('cls')
+            cont = False
+
+    return calificacion
