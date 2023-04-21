@@ -31,7 +31,7 @@ def Repa():
         if n == 1:
             print("".center(70, "="))
             for num, rec in Recomendaciones40.recom.items():
-                recom = "Recomendacion {} - {}".format(num, rec[-1])
+                recom = "Recomendacion {} - {} ({})".format(num, rec[-1],rec[0])
                 wrapp = textwrap.fill(recom)
                 print(wrapp)
             input("\n\nPresiona Enter para continuar...")
