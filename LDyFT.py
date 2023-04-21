@@ -13,8 +13,8 @@ def definicionesLD():
                 "VSPP" : "Encubrir el origen de los fondos, generados mediante el ejercicio de algunas actividades ilegales"}
 
     tema = "Lavado de dinero"
-    pregunta = "esto lo define"
-    calificacion = funcion_preguntas.preguntas_sstr(defLD, tema, pregunta)
+    pregunta = "Esto lo define: "
+    calificacion = funcion_preguntas.preguntas_str(defLD, tema, pregunta)
 
 EtapasLD = {"1" : ["Colocacion", "Introduccion", "Localizacion"],
             "2" : ["Estratificacion", "Decantacion", "Ocultamiento", "Enmascaramiento", "Distribucion"],
@@ -49,7 +49,8 @@ def LD():
                     4 : 0,
                     5 : 0}
     print("".center(70, "="))
-    print("Que quieres practicar?\n\ta. Definiciones Lavado de dinero\n\tb. Etapas Lavado de Dinero\n\tc. Diferencia LD y FT\n\td. Penas\n\te. Corrupcion\n\tf. Salir")
+    print("Que quieres practicar?\n\ta. Definiciones Lavado de dinero", calificacion[1],
+          "\n\tb. Etapas Lavado de Dinero\n\tc. Diferencia LD y FT\n\td. Penas\n\te. Corrupcion\n\tf. Salir")
     resp = input()
     os.system('cls')
     if resp == "a":
