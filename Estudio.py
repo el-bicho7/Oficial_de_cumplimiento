@@ -79,7 +79,7 @@ def Est():
             calificacion[13] = Obligaciones.obligaciones()
 
         elif n == 0:
-            break
+            exit()
 
         else:
             print("No es opcion valida\nPresiona enter para continuar...")

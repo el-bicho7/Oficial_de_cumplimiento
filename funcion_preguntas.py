@@ -4,11 +4,10 @@ import os
 import textwrap
 from time import sleep
 
-'''Funcion para encontrar las respuestas, basandose si las respuestas son en base a un str o en un diccionario.'''
+'''Funcion para encontrar las respuestas, basandose si las respuestas son en base a un str o en una lista.'''
 
 def preguntas_str(diccionario, tema, pregunta):
-    '''Diccionario de str -> str'''
-
+    '''Diccionario de str -> str (key???item)'''
     cont = True
     calificacion = 0
     while cont == True:
@@ -17,10 +16,10 @@ def preguntas_str(diccionario, tema, pregunta):
         incorrectas = {}
         print(tema.center(70, "-"))
         n = int(input("Cuantas preguntas? (max "+ str(len(diccionario)) +")\n\t"))      # numero de preguntas
-        l = random.sample(list(diccionario.keys()) , n)          #lista de persona a preguntar
+        l = random.sample(list(diccionario.keys()) , n)          #lista de preguntas a preguntar
         os.system('cls')
         for i in l:                                         #iteraccion de la lista
-            print(tema.center(70, "-"))
+            print(tema.center(70, "="))
             print("\tScore: ", score, "\tErrores: ", error)
             resp = input(pregunta + i + "?\t\n\t").lower()  #Recibe la respuesta y la hace minusculas
             if resp == diccionario[i].lower():              #Revisa la respuesta recibida y nos indica si es correcto o incorrecto.
@@ -52,21 +51,20 @@ def preguntas_str(diccionario, tema, pregunta):
     return calificacion
 
 def preguntas_list(diccionario, tema, pregunta):
-    '''Diccionario str -> list'''
-
+    '''Diccionario str -> list'''                           #Contesta todo lo que se encuentra en la lista
     caificacion = 0
     attempts = 3
-    score = 0
     n = 0                                                   #Contador de intentos
     dic, lst = random.choice(list(diccionario.items()))     #Elegir un diccionario para preguntar y su lista de respuestas
     response = []                                           #Crear la lista para agregar los resultados
     lst = list(map(lambda z: z.casefold(),lst))             #Hace minusculas todos los objetos de la lista de aciertos
-    pregunta = pregunta + dic + ": (singular)"
+    pregunta = pregunta + dic
     wrapp = textwrap.fill(pregunta)
     print(wrapp)
     while (attempts >0 and len(lst)>0):
 
-        print(tema.center(70, "-"))
+        score = 0
+        print(tema.center(70, "="))
         print("\tScore: ", score, "\tFaltan: ", len(lst), "\tIntentos restantes: ", attempts)
         print(wrapp)
         resp = input("\t").lower() #Captura la respuesta
@@ -111,37 +109,73 @@ def preguntas_list(diccionario, tema, pregunta):
 
 def preguntas_sstr(diccionario, tema, pregunta):
     '''Diccionario para preguntas item???dicc (str:str)'''
-    while intentos < len(diccionario):
-        calificacion = 0
-        errors = 3
-        score = 0
-        intentos = 0
-        faltantes = []
-        for key, value in random.choice(diccionario.items()):
-            print(value, pregunta)
-            resp = input()
-            if resp == key:
-                score += 1
-                intentos += 1
-                print("Correcto")
-            else:
-                errors -= 1
-                intentos += 1
-                print("Incorrecto")
-                faltantes.append(key)
+    new_dicc = {}
+    for key, value in diccionario.items():                          #Crear un nuevo diccionario para voltear la pregunta
+        new_dicc[value] = key
 
-        calificacion = round((score/intentos*100),2)
-        if len(faltantes) > 0:
-            for i in faltantes:
-                print(i, end="\n")
+    calificacion = preguntas_str(new_dicc, tema, pregunta)
+    return calificacion
 
-        print("Calificacion:\n\t", calificacion, "%")
-        cont = input("Intentar otra vez (s/n)\n\t")
-        if cont == 's':
+def preguntas_llist(diccionario, tema, pregunta):
+    '''Diccionario para preguntas de una sola respuesta que se encuentran en una lista str???1-item-list'''
+    caificacion = 0
+    score = 0
+    intentos = 0
+    faltante = {}
+
+    for preg, resp in diccionario.items():                      #
+        print(tema.center(70, "="))
+        print("\tScore: ", score,"\tIntentos restantes: ", intentos)
+        print(pregunta, preg)
+        n = input()
+        if n in diccionario[preg]:
+            print("Correcto")
+            score += 1
+            intentos += 1
+            sleep(2)
             os.system('cls')
-            cont = True
         else:
+            print("Incorrecto")
+            intentos +=1
+            faltante[preg] = resp
+            sleep(2)
             os.system('cls')
-            cont = False
 
+    print("".ljust(70, "="))
+    print("Te faltaron:")
+    for i, e in faltante.items():
+        print(i)
+        for all in e:
+            print(all)
+
+    calificacion = round((score/intentos)*100)
+    return calificacion
+
+
+def preguntas_1_resp_list(diccionario, tema, pregunta):
+    '''Funcion para preguntar por el key del diccionario, teniendo varios items en una lista [list items]->key'''
+    caificacion = 0
+    score = 0
+    intentos = 0
+    preguntas = []
+
+    for opciones in diccionario.values():
+        op = random.choice(opciones)
+        preguntas.append(op)
+
+    random.shuffle(preguntas)
+    for pre in preguntas:
+        print(tema.center(70, "="))
+        print(pregunta)
+        print(pre)
+        n=input("\nRespuesta:\t")
+        if pre in diccionario[n]:
+            print("Correcto")
+            score += 1
+            intentos += 1
+        elif pre not in diccionario[n]:
+            print("Incorrecto")
+            intentos += 1
+
+    calificacion = round((score/intentos)*100, 2)
     return calificacion
