@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-'''Niveles de registro'''
+'''Politica de identificacion de usuarios'''
 import funcion_preguntas
 
 nivel = {   'N1 PF' : ['Nombre completo', 'Pais de nacimiento', 'Nacionalidad', 'Fecha de nacimiento', 'Domicilio', '# de ID'],
@@ -10,12 +10,13 @@ nivel = {   'N1 PF' : ['Nombre completo', 'Pais de nacimiento', 'Nacionalidad', 
             'N3 PM' : ['N1', 'Giro Mercantil', '# de telefono', 'e-mail', 'Fecha de constitucion', 'Nombre del admin', 'Copia doc que acredite existencia', 'Copia Cedula fiscal', 'Copia domicilio', 'Poderes'],
             'N1 Fideicomiso' : ['# de Referencia del fideicomiso', 'Denominacion o razon social del fiduciario', 'Nombre completo apoderado o fiduciario'],
             'N2 Fideicomiso' : ['N1', 'Copia ID PF'],
-            'N3 Fideicomiso' : ['N1', 'Finalidad del fideicomiso', 'Lugar y fecha del fideicomiso', 'Patrimonio fideicomitido', 'Aportaciones fideicomitentes', 'Datos de ID partes del fideicomiso', 'Copia Constitucion Fideicomiso', 'Copia domicilio', 'Copia Testimonio poderes', 'Copia Cedula ID Fiscal']}
+            'N3 Fideicomiso' : ['N1', 'Finalidad del fideicomiso', 'Lugar y fecha del fideicomiso', 'Patrimonio fideicomitido', 'Aportaciones fideicomitentes', 'Datos de ID partes del fideicomiso', 'Copia Constitucion Fideicomiso', 'Copia domicilio', 'Copia Testimonio poderes', 'Copia Cedula ID Fiscal'],
+            }
 
 
 def niveles():
 
-    tema = "Niveles de registro"
+    tema = "Politica de identificacion de usuarios"
     pregunta = "Datos para "
     calificacion = funcion_preguntas.preguntas_list(nivel, tema, pregunta)
     return calificacion
