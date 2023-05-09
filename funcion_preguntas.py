@@ -159,23 +159,34 @@ def preguntas_1_resp_list(diccionario, tema, pregunta):
     intentos = 0
     preguntas = []
 
-    for opciones in diccionario.values():
+    for opciones in diccionario.values():       #Crear una lista con las preguntas
         op = random.choice(opciones)
         preguntas.append(op)
 
-    random.shuffle(preguntas)
+    random.shuffle(preguntas)                   #Hacer la lista aleatoria
     for pre in preguntas:
         print(tema.center(70, "="))
         print(pregunta)
         print(pre)
         n=input("\nRespuesta:\t")
-        if pre in diccionario[n]:
-            print("Correcto")
-            score += 1
-            intentos += 1
-        elif pre not in diccionario[n]:
+        if n in diccionario:
+            if pre in diccionario[n]:
+                print("Correcto")
+                score += 1
+                intentos += 1
+                sleep(2)
+                os.system('cls')
+            elif pre not in diccionario[n]:
+                print("Incorrecto")
+                intentos += 1
+                sleep(2)
+                os.system('cls')
+        else:
             print("Incorrecto")
             intentos += 1
+            sleep(2)
+            os.system('cls')
+            continue
 
     calificacion = round((score/intentos)*100, 2)
     return calificacion
