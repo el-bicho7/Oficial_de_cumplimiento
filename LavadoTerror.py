@@ -79,71 +79,16 @@ def Corrupcion():
     calificacion = funcion_preguntas.preguntas_sstr(corrupcion, tema, pregunta)
     return calificacion
 
-def Penas():
-    calificacion = {1:0,
-                    2:0}
-    while True:
-        print("".center(70, "="))
-        print("Elige una opcion:")
-        print("\ta. Lavado de Dinero\t", calificacion[1],"%\n\tb. Terrorismo\t\t", calificacion[2],"%\n\tc. Salir")
-        x = input()
-        if x == 'a':
-            tema = "Penas Lavado de dinero"
-            pregunta = "Pena para "
-            calificacion[1] = funcion_preguntas.preguntas_str(penasLD, tema, pregunta)
+def Penas_LD():
 
-        elif x == 'b':
-            tema = "Penas Terrorismo"
-            pregunta = "Pena para "
-            calificacion[2] = funcion_preguntas.preguntas_str(penasFT, tema, pregunta)
+    tema = "Penas LD"
+    pregunta = "Pena para: \n"
+    calificacion = funcion_preguntas.preguntas_str(penasLD, tema, pregunta)
+    return calificacion
 
-        elif x == 'c':
-            break
+def Penas_FT():
 
-        else:
-            print("No es opcion valida.")
-            sleep(2)
-            os.system('cls')
-            continue
-    c = 0
-    for key, value in calificacion.items():
-        c += value
-
-    promedio = round(c/len(calificacion),2)
-    return promedio
-
-
-
-def LD():
-    calificacion = {1 : 0,
-                    2 : 0,
-                    3 : 0,
-                    4 : 0,
-                    5 : 0,
-                    6 : 0}
-    while True:
-        print("".center(70, "="))
-        print("Que quieres practicar?\n\ta. Definiciones Lavado de dinero\t", calificacion[1],
-              "%\n\tb. Etapas Lavado de Dinero\t\t", calificacion[2], "%\n\tc. Ejemplos de Lavado de Dinero\t\t", calificacion[3],
-              "%\n\td. Diferencia LD y FT\t\t\t", calificacion[4], "%\n\te. Penas\t\t\t\t", calificacion[5],"%\n\tf. Corrupcion\t\t\t\t", calificacion[6],"%\n\tg. Salir")
-        resp = input()
-        os.system('cls')
-        if resp == "a":
-            calificacion[1] = definicionesLD()
-        elif resp == "b":
-            calificacion[2] = etapasLD()
-        elif resp == "c":
-            calificacion[3] = difetapas()
-        elif resp == "d":
-            calificacion[4] = ldyft_dif()
-        elif resp == "e":
-            calificacion[5] = Penas()
-        elif resp == "f":
-            calificacion[6] = Corrupcion()
-        elif resp == "g":
-            break
-        else:
-            print("No es opcion valida.\nPresiona Enter para continuar...")
-            input()
-            sleep(2)
-            os.system('cls')
+    tema = "Penas FT"
+    pregunta = "Pena para: \n"
+    calificacion = funcion_preguntas.preguntas_sstr(corrupcion, tema, pregunta)
+    return calificacion

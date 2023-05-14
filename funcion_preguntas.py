@@ -10,29 +10,33 @@ def preguntas_str(diccionario, tema, pregunta):
     '''Diccionario de str -> str (key???item)'''
     cont = True
     calificacion = 0
-    while cont == True:
+    while True:  #Revisar este True,poder contestar 0
         score = 0
         error = 0
         incorrectas = {}
         print(tema.center(70, "-"))
         n = int(input("Cuantas preguntas? (max "+ str(len(diccionario)) +")\n\t"))      # numero de preguntas
-        l = random.sample(list(diccionario.keys()) , n)          #lista de preguntas a preguntar
-        os.system('cls')
-        for i in l:                                         #iteraccion de la lista
-            print(tema.center(70, "="))
-            print("\tScore: ", score, "\tErrores: ", error)
-            resp = input(pregunta + i + "?\t\n\t").lower()  #Recibe la respuesta y la hace minusculas
-            if resp == diccionario[i].lower():              #Revisa la respuesta recibida y nos indica si es correcto o incorrecto.
-                score += 1
-                print("\tCorrecto")
-                sleep(1)
-                os.system('cls')
-            else:
-                error +=1
-                print("\tIncorrecto\tRespuesta:\t" + diccionario[i])
-                incorrectas[i] = diccionario[i]
-                sleep(3)
-                os.system('cls')
+        if n == 0:
+            n = 1
+            break
+        else:
+            l = random.sample(list(diccionario.keys()) , n)          #lista de preguntas a preguntar
+            os.system('cls')
+            for i in l:                                         #iteraccion de la lista
+                print(tema.center(70, "="))
+                print("\tScore: ", score, "\tErrores: ", error)
+                resp = input(pregunta + i + "?\t\n\t").lower()  #Recibe la respuesta y la hace minusculas
+                if resp == diccionario[i].lower():              #Revisa la respuesta recibida y nos indica si es correcto o incorrecto.
+                    score += 1
+                    print("\tCorrecto")
+                    sleep(1)
+                    os.system('cls')
+                else:
+                    error +=1
+                    print("\tIncorrecto\tRespuesta:\t" + diccionario[i])
+                    incorrectas[i] = diccionario[i]
+                    sleep(3)
+                    os.system('cls')
 
         calificacion = round((score/n*100), 2)                  #Obtiene la calificacion
         print("".center(70, "-"))
@@ -61,9 +65,8 @@ def preguntas_list(diccionario, tema, pregunta):
     pregunta = pregunta + dic
     wrapp = textwrap.fill(pregunta)
     print(wrapp)
+    score = 0
     while (attempts >0 and len(lst)>0):
-
-        score = 0
         print(tema.center(70, "="))
         print("\tScore: ", score, "\tFaltan: ", len(lst), "\tIntentos restantes: ", attempts)
         print(wrapp)
@@ -91,10 +94,12 @@ def preguntas_list(diccionario, tema, pregunta):
             sleep(1)
             os.system('cls')
     calificacion = round((score/n*100), 2)
-    print("".ljust(70, "="))
-    print("Te faltaron:")
-    for z in lst:
-        print("\t" + z.upper())
+
+    if len(lst) > 1:
+        print("".ljust(70, "="))
+        print("Te faltaron:")
+        for z in lst:
+            print("\t" + z.upper())
 
     print("Calificacion:\n\t", calificacion, "%")
     cont = input("Intentar otra vez (s/n)\n\t")
@@ -141,12 +146,13 @@ def preguntas_llist(diccionario, tema, pregunta):
             sleep(2)
             os.system('cls')
 
-    print("".ljust(70, "="))
-    print("Te faltaron:")
-    for i, e in faltante.items():
-        print(i)
-        for all in e:
-            print(all)
+    if len(faltante) > 0:
+        print("".ljust(70, "="))
+        print("Te faltaron:")
+        for i, e in faltante.items():
+            print(i)
+            for all in e:
+                print(all)
 
     calificacion = round((score/intentos)*100)
     return calificacion

@@ -12,17 +12,16 @@ def Oficialdecumplimiento():
         instrucciones = "Programa para Estudiar y/o Repasar los temas que se veran en el examen del Oficial de cumplimiento.\n"
         wrapp = textwrap.fill(instrucciones)
         print(wrapp)
-        print()
-        x = int(input("Que deseas hacer?\n\t1. Estudiar\n\t2. Repasar\n\t3. Salir\n"))
+        x = input("\nQue deseas hacer?\n\n\t1. Estudiar\n\t2. Repasar\n\t0. Salir\n")
         os.system('cls')
 
-        if x == 1:
+        if x == '1':
             Estudio.Est()
 
-        elif x == 2:
+        elif x == '2':
             Repaso.Repa()
 
-        elif x == 3:
+        elif x == '0':
             exit()
 
         else:

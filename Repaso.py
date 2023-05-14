@@ -1,32 +1,34 @@
 #!/usr/bin/env python
 import os
 import textwrap
-import Recomendaciones40
-import Leyes
-import ClientesUsuarios
-import RegimenSimp
-import Plazos
-import Niveles
-import LineamientosAuditoria
-import Infracciones
+import Adecuada_gestion
 import Auditoria
 import CCCyOC
+import ClientesUsuarios
 import Guia_EBR
-import Adecuada_gestion
-import Obligaciones
+import Infracciones
 import LavadoTerror
+import Leyes
+import LineamientosAuditoria
+import Obligaciones
+import Plazos
 import Polclientes
+import Polusuarios
+import Recomendaciones40
+import RegimenSimp
 import Reportes
+
+
 
 
 def Repa():
     while True:
-        print("".center(70, "="))
+        print(" Repaso Examen CNBV ".center(70, "="))
         print("\nQue deseas repasar? (Solo opciones disponibles)\n",
             "\n\t1. Etapa 1: Conocimientos basicos",
             "\n\t2. Etapa 2: Conocimientos tecnicos en materia de PLD",
             "\n\t3. Etapa 3: Auditoria",
-            "\n\t3. Salir")
+            "\n\t0. Salir")
         n = input()
         os.system('cls')
 
@@ -75,7 +77,7 @@ def Repa():
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == '8':
-                    print("".center(70, "="))
+                    print("".center(70, "_"))
                     for num, rec in Recomendaciones40.recom.items():
                         recom = "Recomendacion {} - {} ({})".format(num, rec[-1],rec[0])
                         wrapp = textwrap.fill(recom)
@@ -111,8 +113,9 @@ def Repa():
                 os.system('cls')
 
                 if opcion == "1":
+                    print("Leyes aplicables a SOB".center(70, "="))
                     for num, ley in Leyes.leyes.items():
-                        print("Leyes aplicables a SOB".center(70, "="))
+                        print("".center(70,"_"))
                         for cod, resp in ley.items():
                             ley_wrap = "{} : {}".format(cod.capitalize(), ", ".join(resp))
                             wrapp = textwrap.fill(ley_wrap)
@@ -125,7 +128,7 @@ def Repa():
                     os.system('cls')
                 elif opcion == "3":
                     print("Politica de Identificacion de usuarios:\n")
-                    imprimir_varios(Niveles.nivel.items())
+                    imprimir_varios(Polusuarios.nivel.items())
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == "4":
@@ -135,7 +138,7 @@ def Repa():
                     os.system('cls')
                 elif opcion == "5":
                     for act, inf in RegimenSimp.cuenta.items():
-                        print("".center(70, "="))
+                        print("".center(70, "_"))
                         print()
                         for nivel, docs in inf.items():
                             for udi, doc in docs.items():
@@ -159,11 +162,8 @@ def Repa():
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == "9":
-                    print("Sistema automatizado:\n")
                     imprimir_varios(CCCyOC.sistema.items())
-                    print("Oficial de cumplimiento:\n")
                     imprimir_varios(CCCyOC.ofc.items())
-                    print("Comite de Comunicacion y Control:\n")
                     imprimir_varios(CCCyOC.ccyc.items())
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
@@ -173,9 +173,9 @@ def Repa():
                     os.system('cls')
                 elif opcion == "11":
                     for env, dias in Plazos.plazo.items():
-                        print("".center(70,"="))
+                        print("".center(70,"_"))
                         print()
-                        plazz = "{} - {}".format(env, dias)
+                        plazz = "-{}".format(dias)
                         wrapp = textwrap.fill(plazz)
                         print(wrapp)
                     input("\n\nPresiona Enter para continuar...")
@@ -202,36 +202,37 @@ def Repa():
                 os.system('cls')
 
                 if opcion == "1":
-                    print("Lineamientos de la Auditoria")
+                    print(" Lineamientos de la Auditoria ".center(70, "="))
                     for numero, linea in LineamientosAuditoria.lineamientos.items():
                         print("Lineamiento", numero, "-", linea)
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == "2":
-                    print("Procedimiento de auditoria:\n")
+                    print(" Procedimiento de auditoria ".center(70, "="))
                     imprimir_varios(Auditoria.proced.items())
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == "3":
-                    print("Orden de visita de la auditoria:\n")
+                    print(" Orden de visita de la auditoria ".center(70, "="))
                     imprimir_varios(Auditoria.orden.items())
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == "4":
-                    print("Procedimiento de la visita:\n")
+                    print(" Procedimiento de la visita ".center(70, "="))
                     imprimir_varios(Auditoria.visitas.items())
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == "5":
-                    print("Seccion 1: Elementos clave del EBR\n")
+                    print(" Seccion 1: Elementos clave del EBR ".center(70, "="))
                     imprimir_1(Guia_EBR.retos.items())
-                    print("Seccion 2: Guia para supervisores\n")
+                    print(" Seccion 2: Guia para supervisores ".center(70, "="))
                     imprimir_varios(Guia_EBR.supervisores.items())
-                    print("Seccion 3: Guia para banco\n")
+                    print(" Seccion 3: Guia para banco ".center(70, "="))
                     imprimir_varios(Guia_EBR.bancos.items())
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
                 elif opcion == "6":
+                    print(" Adecuada gestion del riesgo ".center(70, "="))
                     imprimir_varios(Adecuada_gestion.ele.items())
                     input("\n\nPresiona Enter para continuar...")
                     os.system('cls')
@@ -251,24 +252,27 @@ def Repa():
             continue
 
 def imprimir_1(libreria): #libreria con una lista de 1 contenido
+    print("".center(70, "_"))
     for tema, definiciones in libreria:
         print(tema)
         contenido = ", ".join(definiciones)
         wrapp = textwrap.fill(contenido)
         print("-", wrapp)
-        print("".center(70,"="))
+        print("".center(70,"_"))
 
 def imprimir_varios(libreria): #libreria con una lista de varios contenidos
+    print("".center(70, "_"))
     for tema, definiciones in libreria:
         print(tema)
         for defi in definiciones:
             wrapp = textwrap.fill(defi)
             print("-", wrapp)
-        print("".center(70,"="))
+        print("".center(70,"_"))
 
 def imprimir_str(libreria): #imprimir una libreria
+    print("".center(70, "_"))
     for tema, definicion in libreria:
         print(tema)
         wrapp = textwrap.fill(definicion)
         print("-", wrapp, "\n")
-        print("".center(70,"="))
+        print("".center(70,"_"))

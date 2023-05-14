@@ -27,44 +27,15 @@ def sist_autom():
     return calificacion
 
 def OC():
-          
+
     tema = "Oficial de cumplimiento"
     pregunta = "Funciones del "
     calificacion = funcion_preguntas.preguntas_list(ofc, tema, pregunta)
     return calificacion
-    
+
 def CCC():
-      
+
     tema = "Comite de Comunicacion y Control"
     pregunta = "Funciones del "
     calificacion = funcion_preguntas.preguntas_list(ccyc, tema, pregunta)
     return calificacion
-
-def funciones():
-    calificacion = { 1 : 0,
-                     2 : 0,
-                     3 : 0}
-    while True:
-        print("".ljust(80, "-"))
-        print("Que quieres practicar?\n\ta. Sistema automatizado\t\t\t", calificacion[1], "%\n\tb. Oficial de cumplimiento\t\t", calificacion[2],"%\n\tc. Comite de Comunicacion y Control\t", calificacion[3], "%\n\td. Salir\n")
-        resp = input()
-        os.system('cls')
-        if resp == 'a':
-            calificacion[1] = sist_autom()
-
-        elif resp == 'b':
-            calificacion[2] = OC()
-
-        elif resp == 'c':
-            calificacion[3] = CCC()
-
-        elif resp == 'd':
-            break
-    c = 0
-    for key, value in calificacion.items():
-        c += value
-
-    promedio  = round(c/len(calificacion), 2)
-
-    return promedio
-        

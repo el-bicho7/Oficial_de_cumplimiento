@@ -28,5 +28,5 @@ def Reportes():
 
     tema = "Reportes"
     pregunta = "A quien aplica este reporte: "
-    calificacion = funcion_preguntas.preguntas_list(nivel, tema, pregunta)
+    calificacion = funcion_preguntas.preguntas_list(reportes_SOB, tema, pregunta)
     return calificacion

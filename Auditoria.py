@@ -35,32 +35,3 @@ def visita():
     pregunta = "Cual es el "
     calificacion = funcion_preguntas.preguntas_list(visitas, tema, pregunta)
     return calificacion
-
-def auditoria():
-    calificacion = { 1 : 0,
-                     2 : 0,
-                     3 : 0}
-    while True:
-
-        print("".ljust(70,'='))
-        print("Que quieres practicar?\n\ta. Procedimiento de la Auditoria\t", calificacion[1], "%\n\tb. Orden de visita\t\t\t", calificacion[2],"%\n\tc. Procedimiento de visita de Auditoria\t", calificacion[3], "%\n\td. Salir\n")
-        resp = input()
-        os.system('cls')
-        if resp == 'a':
-            calificacion[1] = proced_visita()
-
-        elif resp == 'b':
-            calificacion[2] = orden_visita()
-
-        elif resp == 'c':
-            calificacion[3] = visita()
-
-        elif resp == 'd':
-            break
-    c = 0
-    for key, value in calificacion.items():
-        c += value
-
-    promedio  = round(c/len(calificacion), 2)
-
-    return promedio
